@@ -1,0 +1,70 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+// GZSPnERcfgtBEG4wdVh4fw9EW3U4Sq53gGpbUjtNDw6jqwhk9kRNQfUo3uZjrCos
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+model User {
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String    @unique
+  hashedPassword      String
+  salt                String
+  resetToken          String?
+  resetTokenExpiresAt DateTime?
+  roles               String    @default("user")
+  products            Product[]
+  orders              Order[]
+  reviews             Review[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  description String
+  products    Product[]
+}
+
+model Product {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  price       Int
+  image       String
+  isActive    Boolean  @default(true)
+  // isApproved    Boolean   @default(false)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  // order         Order[]   @relation(fields: [id], references: [productId])
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  orders      Order[]
+  reviews     Review[]
+}
+
+model Order {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+}

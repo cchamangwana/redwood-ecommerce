@@ -1,0 +1,3 @@
+Supl  - adding products, delete, view orders, list thier products, edit their products
+Admn  - user management(changes user roles)
+Customer - Search, order, register, reviews, compare products [price, review, decription]
