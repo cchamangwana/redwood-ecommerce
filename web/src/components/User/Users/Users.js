@@ -3,13 +3,12 @@ import humanize from 'humanize-string'
 import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { useAuth } from '@redwoodjs/auth'
 
-import { QUERY } from 'src/components/Product/ProductsCell'
+import { QUERY } from 'src/components/User/UsersCell'
 
-const DELETE_PRODUCT_MUTATION = gql`
-  mutation DeleteProductMutation($id: String!) {
-    deleteProduct(id: $id) {
+const DELETE_USER_MUTATION = gql`
+  mutation DeleteUserMutation($id: String!) {
+    deleteUser(id: $id) {
       id
     }
   }
@@ -54,19 +53,10 @@ const checkboxInputTag = (checked) => {
   return <input type="checkbox" checked={checked} disabled />
 }
 
-const ProductsList = ({ products }) => {
-  const { currentUser } = useAuth()
-  console.log('currentUser', currentUser)
-
-  // filter products by userId
-  const filteredProducts = products.filter((product) => {
-    return product.userId === currentUser.id
-  })
-  console.log('filteredProducts', filteredProducts)
-
-  const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION, {
+const UsersList = ({ users }) => {
+  const [deleteUser] = useMutation(DELETE_USER_MUTATION, {
     onCompleted: () => {
-      toast.success('Product deleted')
+      toast.success('User deleted')
     },
     onError: (error) => {
       toast.error(error.message)
@@ -79,8 +69,8 @@ const ProductsList = ({ products }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete product ' + id + '?')) {
-      deleteProduct({ variables: { id } })
+    if (confirm('Are you sure you want to delete user ' + id + '?')) {
+      deleteUser({ variables: { id } })
     }
   }
 
@@ -91,49 +81,47 @@ const ProductsList = ({ products }) => {
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            {/* <th>Image</th> */}
-            <th>Is active</th>
-            <th>Owner</th>
-            <th>Created at</th>
-            <th>Category id</th>
+            <th>Email</th>
+            <th>Hashed password</th>
+            <th>Salt</th>
+            <th>Reset token</th>
+            <th>Reset token expires at</th>
+            <th>Roles</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-            <tr key={product.id}>
-              <td>{truncate(product.id)}</td>
-              <td>{truncate(product.name)}</td>
-              <td>{truncate(product.description)}</td>
-              <td>{truncate(product.price)}</td>
-              <td>{checkboxInputTag(product.isActive)}</td>
-              {/* <td>{truncate(product.userId)}</td> */}
-              <td>{truncate(product.user.name)}</td>
-              <td>{timeTag(product.createdAt)}</td>
-              <td>{truncate(product.categoryId)}</td>
+          {users.map((user) => (
+            <tr key={user.id}>
+              <td>{truncate(user.id)}</td>
+              <td>{truncate(user.name)}</td>
+              <td>{truncate(user.email)}</td>
+              <td>{truncate(user.hashedPassword)}</td>
+              <td>{truncate(user.salt)}</td>
+              <td>{truncate(user.resetToken)}</td>
+              <td>{timeTag(user.resetTokenExpiresAt)}</td>
+              <td>{truncate(user.roles)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.product({ id: product.id })}
-                    title={'Show product ' + product.id + ' detail'}
+                    to={routes.user({ id: user.id })}
+                    title={'Show user ' + user.id + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editProduct({ id: product.id })}
-                    title={'Edit product ' + product.id}
+                    to={routes.editUser({ id: user.id })}
+                    title={'Edit user ' + user.id}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <button
                     type="button"
-                    title={'Delete product ' + product.id}
+                    title={'Delete user ' + user.id}
                     className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(product.id)}
+                    onClick={() => onDeleteClick(user.id)}
                   >
                     Delete
                   </button>
@@ -147,4 +135,4 @@ const ProductsList = ({ products }) => {
   )
 }
 
-export default ProductsList
+export default UsersList

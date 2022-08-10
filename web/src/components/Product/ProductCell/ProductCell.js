@@ -12,6 +12,7 @@ export const QUERY = gql`
       userId
       createdAt
       categoryId
+
     }
   }
 `

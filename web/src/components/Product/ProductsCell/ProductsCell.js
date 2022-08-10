@@ -1,5 +1,4 @@
 import { Link, routes } from '@redwoodjs/router'
-
 import Products from 'src/components/Product/Products'
 
 export const QUERY = gql`
@@ -14,9 +13,15 @@ export const QUERY = gql`
       userId
       createdAt
       categoryId
+      user {
+        id
+        name
+      }
     }
   }
 `
+// get products where userId = userId
+
 
 export const Loading = () => <div>Loading...</div>
 
