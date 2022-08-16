@@ -39,9 +39,9 @@ const UserLayout = ({ children }) => {
                   tabIndex="0"
                   className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <li>
+                  {/* <li>
                     <a>Products</a>
-                  </li>
+                  </li> */}
                   <li>
                     <a>Orders</a>
                   </li>
@@ -53,12 +53,12 @@ const UserLayout = ({ children }) => {
                   <li>
                     <Link to={routes.home()}>Home</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to={routes.products()}>Products</Link>
-                  </li>
+                  </li> */}
                   {isAuthenticated ? (
                     <li>
-                      <Link to={routes.orders()}>My Account</Link>
+                      <Link to={routes.account()}>My Account</Link>
                     </li>
                   ) : null}
                 </ul>

@@ -13,19 +13,25 @@ import SupplierLayout from './layouts/SupplierLayout/SupplierLayout'
 const Routes = () => {
   return (
     <Router>
+      <Route path="/admin" page={AdminPage} name="admin" />
       <Set wrap={ReviewsLayout}>
         <Route path="/reviews/new" page={ReviewNewReviewPage} name="newReview" />
         <Route path="/reviews/{id}/edit" page={ReviewEditReviewPage} name="editReview" />
         <Route path="/reviews/{id}" page={ReviewReviewPage} name="review" />
         <Route path="/reviews" page={ReviewReviewsPage} name="reviews" />
       </Set>
-      <Set wrap={OrdersLayout}>
+      {/* <Set wrap={OrdersLayout}>
         <Route path="/orders/new" page={OrderNewOrderPage} name="newOrder" />
         <Route path="/orders/{id}/edit" page={OrderEditOrderPage} name="editOrder" />
         <Route path="/orders/{id}" page={OrderOrderPage} name="order" />
         <Route path="/orders" page={OrderOrdersPage} name="orders" />
-      </Set>
+      </Set> */}
       <Set wrap={SupplierLayout} private unauthenticated="home" role="admin" >
+        <Route path="/account" page={AccountPage} name="account" />
+        <Route path="/orders/new" page={OrderNewOrderPage} name="newOrder" />
+        <Route path="/orders/{id}/edit" page={OrderEditOrderPage} name="editOrder" />
+        <Route path="/orders/{id}" page={OrderOrderPage} name="order" />
+        <Route path="/orders" page={OrderOrdersPage} name="orders" />
         <Route path="/products/new" page={ProductNewProductPage} name="newProduct" />
         <Route path="/products/{id}/edit" page={ProductEditProductPage} name="editProduct" />
         <Route path="/products/{id}" page={ProductProductPage} name="product" />

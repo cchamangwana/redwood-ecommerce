@@ -49,8 +49,11 @@ const SupplierLayout = ({ children }) => {
                 <Link to={routes.orders()}>My Orders</Link>
               </li>
               <li>
-                <Link to={routes.newProduct()}>My Suppliers</Link>
+                <Link to={routes.newProduct()}>Add Product</Link>
               </li>
+              {/* <li>
+                <Link to={routes.newProduct()}>My Suppliers</Link>
+              </li> */}
             </ul>
           </div>
         </div>
