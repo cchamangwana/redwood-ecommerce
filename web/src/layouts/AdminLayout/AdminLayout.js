@@ -37,16 +37,25 @@ const AdminLayout = ({ children }) => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
-                <Link to={routes.home()}>Home</Link>
+                <Link to={routes.admin()}>Home</Link>
               </li>
               <li>
-                <Link to={routes.products()}>My Products</Link>
+                <Link to={routes.products()}>All Products</Link>
               </li>
               <li>
-                <Link to={routes.orders()}>My Orders</Link>
+                <Link to={routes.orders()}>All Orders</Link>
               </li>
               <li>
-                <Link to={routes.newProduct()}>My Suppliers</Link>
+                <Link to={routes.newProduct()}>Add Product</Link>
+              </li>
+              <li>
+                <Link to={routes.newCategory()}>Create Category</Link>
+              </li>
+              <li>
+                <Link to={routes.categories()}>Categories</Link>
+              </li>
+              <li>
+                <Link to={routes.users()}>Users</Link>
               </li>
             </ul>
           </div>

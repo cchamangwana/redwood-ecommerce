@@ -2,15 +2,16 @@ export const standard = defineScenario({
   review: {
     one: {
       data: {
+        text: 'String',
         product: {
           create: {
             name: 'String',
             description: 'String',
-            price: 5962818,
+            price: 1580178,
             image: 'String',
             user: {
               create: {
-                email: 'String8841985',
+                email: 'String2121378',
                 hashedPassword: 'String',
                 salt: 'String',
               },
@@ -22,7 +23,7 @@ export const standard = defineScenario({
 
         user: {
           create: {
-            email: 'String4743215',
+            email: 'String2581715',
             hashedPassword: 'String',
             salt: 'String',
           },
@@ -32,15 +33,16 @@ export const standard = defineScenario({
 
     two: {
       data: {
+        text: 'String',
         product: {
           create: {
             name: 'String',
             description: 'String',
-            price: 4360518,
+            price: 3274559,
             image: 'String',
             user: {
               create: {
-                email: 'String5703730',
+                email: 'String2519943',
                 hashedPassword: 'String',
                 salt: 'String',
               },
@@ -52,7 +54,7 @@ export const standard = defineScenario({
 
         user: {
           create: {
-            email: 'String4444601',
+            email: 'String1153860',
             hashedPassword: 'String',
             salt: 'String',
           },

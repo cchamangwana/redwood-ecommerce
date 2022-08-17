@@ -30,21 +30,23 @@ describe('reviews', () => {
       input: {
         userId: scenario.review.two.userId,
         productId: scenario.review.two.productId,
+        text: 'String',
       },
     })
 
     expect(result.userId).toEqual(scenario.review.two.userId)
     expect(result.productId).toEqual(scenario.review.two.productId)
+    expect(result.text).toEqual('String')
   })
 
   scenario('updates a review', async (scenario) => {
     const original = await review({ id: scenario.review.one.id })
     const result = await updateReview({
       id: original.id,
-      input: { productId: scenario.review.two.userId },
+      input: { text: 'String2' },
     })
 
-    expect(result.productId).toEqual(scenario.review.two.userId)
+    expect(result.text).toEqual('String2')
   })
 
   scenario('deletes a review', async (scenario) => {

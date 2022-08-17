@@ -7,7 +7,8 @@ const ProductDetailsPage = ({ id }) => {
     <>
       <MetaTags title="ProductDetails" description="ProductDetails page" />
 
-      <DetailsCell id={id}/>
+      <DetailsCell id={id} />
+
     </>
   )
 }

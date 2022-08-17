@@ -63,8 +63,9 @@ model Order {
 model Review {
   id        String   @id @default(cuid())
   userId    String
-  productId String
-  product   Product  @relation(fields: [productId], references: [id])
+  productId String?
+  text      String
+  product   Product? @relation(fields: [productId], references: [id])
   user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
 }

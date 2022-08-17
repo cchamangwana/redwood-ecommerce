@@ -3,24 +3,27 @@ export const schema = gql`
     id: String!
     userId: String!
     productId: String!
+    text: String!
     product: Product!
     user: User!
     createdAt: DateTime!
   }
 
   type Query {
-    reviews: [Review!]! @requireAuth
-    review(id: String!): Review @requireAuth
+    reviews: [Review!]! @skipAuth
+    review(id: String!): Review @skipAuth
   }
 
   input CreateReviewInput {
     userId: String!
     productId: String!
+    text: String!
   }
 
   input UpdateReviewInput {
     userId: String
     productId: String
+    text: String
   }
 
   type Mutation {

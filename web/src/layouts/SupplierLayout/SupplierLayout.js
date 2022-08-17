@@ -36,12 +36,11 @@ const SupplierLayout = ({ children }) => {
               </li>
             </ul>
           </div>
+          <Link to={routes.home()}>
           <a className="btn btn-ghost normal-case text-xl">PriceWebsite</a>
+          </Link>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
-              <li>
-                <Link to={routes.home()}>Home</Link>
-              </li>
               <li>
                 <Link to={routes.products()}>My Products</Link>
               </li>

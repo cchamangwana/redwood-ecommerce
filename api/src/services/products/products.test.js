@@ -30,7 +30,7 @@ describe('products', () => {
       input: {
         name: 'String',
         description: 'String',
-        price: 1657344,
+        price: 3473864,
         image: 'String',
         userId: scenario.product.two.userId,
         categoryId: scenario.product.two.categoryId,
@@ -39,7 +39,7 @@ describe('products', () => {
 
     expect(result.name).toEqual('String')
     expect(result.description).toEqual('String')
-    expect(result.price).toEqual(1657344)
+    expect(result.price).toEqual(3473864)
     expect(result.image).toEqual('String')
     expect(result.userId).toEqual(scenario.product.two.userId)
     expect(result.categoryId).toEqual(scenario.product.two.categoryId)

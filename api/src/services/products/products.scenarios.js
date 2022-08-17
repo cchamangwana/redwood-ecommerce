@@ -4,11 +4,11 @@ export const standard = defineScenario({
       data: {
         name: 'String',
         description: 'String',
-        price: 3103866,
+        price: 6689881,
         image: 'String',
         user: {
           create: {
-            email: 'String1280911',
+            email: 'String296726',
             hashedPassword: 'String',
             salt: 'String',
           },
@@ -22,11 +22,11 @@ export const standard = defineScenario({
       data: {
         name: 'String',
         description: 'String',
-        price: 5713377,
+        price: 9740195,
         image: 'String',
         user: {
           create: {
-            email: 'String6581318',
+            email: 'String504626',
             hashedPassword: 'String',
             salt: 'String',
           },
