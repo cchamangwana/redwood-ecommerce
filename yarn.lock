@@ -10300,6 +10300,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^2.29.1":
+  version: 2.29.1
+  resolution: "date-fns@npm:2.29.1"
+  checksum: 9d6eabcfd5b2c8d8179baaa37a3f7248092d3c3ab1f37994270ea3f3aaf88419991e67c4bfcea4816492ddb2b7a31e106ff70e6089ae881f153d5fd2ef80874c
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.0":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -24088,6 +24095,7 @@ __metadata:
     "@redwoodjs/web": 2.1.0
     autoprefixer: ^10.4.7
     daisyui: ^2.19.1
+    date-fns: ^2.29.1
     postcss: ^8.4.14
     postcss-loader: ^7.0.1
     prop-types: 15.8.1

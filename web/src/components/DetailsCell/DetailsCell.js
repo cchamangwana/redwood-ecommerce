@@ -1,5 +1,7 @@
+import { formatDateToNow } from 'src/utils/formatDate'
 import AddToCart from '../AddToCart/AddToCart'
 import RemoveFromCart from '../RemoveFromCart/RemoveFromCart'
+
 export const QUERY = gql`
   query productQuery($id: String!) {
     product(id: $id) {
@@ -15,6 +17,7 @@ export const QUERY = gql`
       reviews {
         id
         text
+        createdAt
         user {
           id
           name
@@ -102,9 +105,14 @@ export const Success = ({ product }) => {
           {reviews.map((review) => {
             return (
               <>
-                <p key={review.id} className="text-black">
-                  {review.user.name} sayed {review.text}{' '}
+              <div className="bg-gray-100 p-3 mb-3">
+                <p key={review.id} className="text-black text-xl">
+                  {review.user.name} said {review.text}{' '}
                 </p>
+                <p style={{ zoom: 0.9 }}>
+                   {formatDateToNow(review.createdAt)}
+                </p>
+              </div>
               </>
             )
           })}
