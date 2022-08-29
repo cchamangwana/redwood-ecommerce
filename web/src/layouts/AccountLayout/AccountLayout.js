@@ -1,6 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
-const SupplierLayout = ({ children }) => {
+const AccountLayout = ({ children }) => {
   const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
 
   return (
@@ -37,16 +37,16 @@ const SupplierLayout = ({ children }) => {
             </ul>
           </div>
           <Link to={routes.home()}>
-          <a className="btn btn-ghost normal-case text-xl">PriceWebsite</a>
+          <a className="btn btn-ghost normal-case text-xl">smartMarkets</a>
           </Link>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
                 <Link to={routes.products()}>My Products</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={routes.orders()}>My Orders</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={routes.newProduct()}>Add Product</Link>
               </li>
@@ -89,4 +89,4 @@ const SupplierLayout = ({ children }) => {
   )
 }
 
-export default SupplierLayout
+export default AccountLayout

@@ -1,6 +1,7 @@
 import { formatDateToNow } from 'src/utils/formatDate'
 import AddToCart from '../AddToCart/AddToCart'
 import RemoveFromCart from '../RemoveFromCart/RemoveFromCart'
+import { useAuth } from '@redwoodjs/auth'
 
 export const QUERY = gql`
   query productQuery($id: String!) {
@@ -36,8 +37,18 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ product }) => {
+  const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
+
   const { reviews } = product
-  console.log(product)
+
+  const cartProduct = {
+    productId: product.id,
+    userId: currentUser?.id,
+    price: product.price
+  }
+
+  // console.log(product)
+
   return (
     <section className="text-gray-400 body-font overflow-hidden">
       <div className="px-1 py-24 mx-auto">
@@ -73,8 +84,13 @@ export const Success = ({ product }) => {
               <AddToCart product={product} />
               <RemoveFromCart product={product} />
             </div>
+            {isAuthenticated && (
             <div className="flex items-center justify-center mb-4 max-w-lg">
               <form className="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+                <div>
+                    <input value={currentUser.id} />
+                </div>
+                <input value={product.id}/>
                 <div className="flex flex-wrap mt-3 -mx-3 mb-6">
                   <div className="w-full md:w-full px-3 mb-2 mt-2">
                     <textarea
@@ -95,7 +111,7 @@ export const Success = ({ product }) => {
                   </div>
                 </div>
               </form>
-            </div>
+            </div>)}
           </div>
         </div>
         <div className="lg:w-4/5 mx-auto">
@@ -105,8 +121,8 @@ export const Success = ({ product }) => {
           {reviews.map((review) => {
             return (
               <>
-              <div className="bg-gray-100 p-3 mb-3">
-                <p key={review.id} className="text-black text-xl">
+              <div key={review.id} className="bg-gray-100 p-3 mb-3">
+                <p className="text-black text-xl">
                   {review.user.name} said {review.text}{' '}
                 </p>
                 <p style={{ zoom: 0.9 }}>

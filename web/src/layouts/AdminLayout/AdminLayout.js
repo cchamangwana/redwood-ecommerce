@@ -33,7 +33,7 @@ const AdminLayout = ({ children }) => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">PriceWebsite</a>
+          <a className="btn btn-ghost normal-case text-xl">smartMarkets</a>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
@@ -42,9 +42,9 @@ const AdminLayout = ({ children }) => {
               <li>
                 <Link to={routes.products()}>All Products</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to={routes.orders()}>All Orders</Link>
-              </li>
+              </li> */}
               <li>
                 <Link to={routes.newProduct()}>Add Product</Link>
               </li>

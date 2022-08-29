@@ -47,7 +47,7 @@ const UserLayout = ({ children }) => {
                   </li>
                 </ul>
               </div>
-              <a className="btn btn-ghost normal-case text-xl">PriceWebsite</a>
+              <a className="btn btn-ghost normal-case text-xl">SmartMarkets</a>
               <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                   <li>
@@ -61,6 +61,12 @@ const UserLayout = ({ children }) => {
                       <Link to={routes.account()}>My Account</Link>
                     </li>
                   ) : null}
+                  {console.log(currentUser?.roles)}
+                  {currentUser?.roles =='admin' && (
+                    <li>
+                      <Link to={routes.admin()}>Admin</Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>

@@ -20,7 +20,7 @@ const AccountPage = () => {
                           PRODUCTS
                         </h5>
                         <span className="font-semibold text-xl text-blueGray-700">
-                          350,897
+                          5
                         </span>
                       </div>
                       <div className="relative w-auto pl-4 flex-initial">
@@ -42,11 +42,11 @@ const AccountPage = () => {
                           SALES
                         </h5>
                         <span className="font-semibold text-xl text-blueGray-700">
-                          2,356
+                          20
                         </span>
                       </div>
                       <div className="relative w-auto pl-4 flex-initial">
-                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-orange-500 ">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-teal-500 ">
                           <i className="fas fa-chart-pie"></i>
                         </div>
                       </div>
@@ -63,11 +63,11 @@ const AccountPage = () => {
                           REVENUE
                         </h5>
                         <span className="font-semibold text-xl text-blueGray-700">
-                          924
+                          K92,400
                         </span>
                       </div>
                       <div className="relative w-auto pl-4 flex-initial">
-                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-pink-500">
+                        <div className="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 shadow-lg rounded-full bg-green-500">
                           <i className="fas fa-users"></i>
                         </div>
                       </div>
