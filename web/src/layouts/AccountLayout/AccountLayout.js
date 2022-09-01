@@ -37,7 +37,7 @@ const AccountLayout = ({ children }) => {
             </ul>
           </div>
           <Link to={routes.home()}>
-          <a className="btn btn-ghost normal-case text-xl">smartMarkets</a>
+          <a className="btn btn-ghost normal-case text-xl">Ecommerce</a>
           </Link>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
