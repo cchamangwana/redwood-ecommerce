@@ -4,7 +4,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { useAuth } from '@redwoodjs/auth'
-
+// import { formatDateToNow } from 'src/utils/formatDate'
 import { QUERY } from 'src/components/Product/ProductsCell'
 
 const DELETE_PRODUCT_MUTATION = gql`
@@ -91,13 +91,12 @@ const ProductsList = ({ products }) => {
           <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Description</th>
             <th>Price</th>
             {/* <th>Image</th> */}
             <th>Is active</th>
-            <th>Owner</th>
+            {/* <th>Owner</th> */}
             <th>Created at</th>
-            <th>Category id</th>
+            <th>Category</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -106,13 +105,12 @@ const ProductsList = ({ products }) => {
             <tr key={product.id}>
               <td>{truncate(product.id)}</td>
               <td>{truncate(product.name)}</td>
-              <td>{truncate(product.description)}</td>
               <td>{truncate(product.price)}</td>
               <td>{checkboxInputTag(product.isActive)}</td>
-              {/* <td>{truncate(product.userId)}</td> */}
-              <td>{truncate(product.user.name)}</td>
+              {/* <td>{truncate(product.user.name)}</td> */}
+              {/* <td>{timeTag(formatDateToNow(product.createdAt))}</td> */}
               <td>{timeTag(product.createdAt)}</td>
-              <td>{truncate(product.categoryId)}</td>
+              <td>{truncate(product.category.name)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

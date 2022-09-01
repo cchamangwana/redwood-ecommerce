@@ -2,6 +2,7 @@ import {
   Form,
   FormError,
   FieldError,
+  SelectField,
   Label,
   TextField,
   NumberField,
@@ -9,6 +10,7 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 import { useAuth } from '@redwoodjs/auth'
+import CategoriesCell from 'src/components/CategoriesCell/CategoriesCell'
 
 
 const ProductForm = (props) => {
@@ -127,9 +129,9 @@ const ProductForm = (props) => {
 
         <TextField
           name="userId"
-          defaultValue={props.product?.userId}
-          // defaultValue={String(currentUser?.id)}
-
+          // defaultValue={props.product?.userId}
+          defaultValue={String(currentUser?.id)}
+          // placeholder={currentUser?.id}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
@@ -142,16 +144,18 @@ const ProductForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Category id
+          Category
         </Label>
 
-        <TextField
+        <SelectField
           name="categoryId"
           defaultValue={props.product?.categoryId}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}
-        />
+        >
+          <CategoriesCell  isCreatePage="true"/>
+        </SelectField>
 
         <FieldError name="categoryId" className="rw-field-error" />
 

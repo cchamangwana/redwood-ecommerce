@@ -38,7 +38,7 @@ const ProductItem = ({ product }) => {
               </svg>
             </Link>
             <span className="text-gray-500 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-lg pr-3 py-1 border-gray-800 font-bold">
-              {product.price}
+              K{product.price}
             </span>
           </div>
         </div>

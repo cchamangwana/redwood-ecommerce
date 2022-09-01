@@ -12,7 +12,10 @@ export const QUERY = gql`
       isActive
       userId
       createdAt
-      categoryId
+      category{
+        id
+        name
+      }
       user {
         id
         name
