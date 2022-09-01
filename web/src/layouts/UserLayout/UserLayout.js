@@ -47,7 +47,7 @@ const UserLayout = ({ children }) => {
                   </li>
                 </ul>
               </div>
-              <a className="btn btn-ghost normal-case text-xl">SmartMarkets</a>
+              <a className="btn btn-ghost normal-case text-xl">Ecommerce</a>
               <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                   <li>
