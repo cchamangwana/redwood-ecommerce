@@ -114,7 +114,7 @@ export const Success = ({ product }) => {
             </div>)}
           </div>
         </div>
-        <div className="lg:w-4/5 mx-auto">
+        {/* <div className="lg:w-4/5 mx-auto">
           <h1 className="pt-5 text-gray-700 text-3xl title-font font-medium">
             Comments
           </h1>
@@ -132,7 +132,7 @@ export const Success = ({ product }) => {
               </>
             )
           })}
-        </div>
+        </div> */}
       </div>
     </section>
   )

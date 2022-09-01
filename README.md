@@ -16,9 +16,9 @@ Install project dependencies with npm
 Your browser should automatically open to http://localhost:8910 where you'll see the Welcome Page
 ## Tech Stack
 
-**Client:** React, Apollo Client TailwindCSS, DaisyUI
+**Client:** React, Apollo Client, TailwindCSS, DaisyUI
 
-**Server:** Node, GraphQL
+**Server:** NodeJS, GraphQL
 
 
 ## Screenshots
@@ -29,3 +29,4 @@ Your browser should automatically open to http://localhost:8910 where you'll see
 
 ![App Screenshot](https://res.cloudinary.com/tijede/image/upload/v1662040774/rizy1gnixiofw2ryjbpn.png)
 
+![App Screenshot](https://res.cloudinary.com/tijede/image/upload/v1662047083/pafpivnfvb7fwepavkwd.png)
