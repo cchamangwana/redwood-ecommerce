@@ -16,6 +16,14 @@ export const createProduct = ({ input }) => {
   })
 }
 
+export const getUserProducts = ({ id }) => {
+  return db.product.findMany({
+    where: {
+      userId: id,
+    },
+  })
+}
+
 export const updateProduct = ({ id, input }) => {
   return db.product.update({
     data: input,

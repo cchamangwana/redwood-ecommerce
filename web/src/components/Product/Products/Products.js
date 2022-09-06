@@ -55,14 +55,14 @@ const checkboxInputTag = (checked) => {
 }
 
 const ProductsList = ({ products }) => {
-  const { currentUser } = useAuth()
-  console.log('currentUser', currentUser)
+  // const { currentUser } = useAuth()
+  // console.log('currentUser', currentUser)
 
-  // filter products by userId
-  const filteredProducts = products.filter((product) => {
-    return product.userId === currentUser.id
-  })
-  console.log('filteredProducts', filteredProducts)
+  // // filter products by userId
+  // const filteredProducts = products.filter((product) => {
+  //   return product.userId === currentUser.id
+  // })
+  // console.log('filteredProducts', filteredProducts)
 
   const [deleteProduct] = useMutation(DELETE_PRODUCT_MUTATION, {
     onCompleted: () => {
