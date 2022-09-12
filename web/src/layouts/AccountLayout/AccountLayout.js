@@ -41,18 +41,15 @@ const AccountLayout = ({ children }) => {
           </Link>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
-              <li>
-                <Link to={routes.products( {id: currentUser.id})}>My Products</Link>
+            <li>
+                <Link to={routes.account()}>Account</Link>
               </li>
-              {/* <li>
-                <Link to={routes.orders()}>My Orders</Link>
-              </li> */}
+              <li>
+                <Link to={routes.products()}>My Products</Link>
+              </li>
               <li>
                 <Link to={routes.newProduct()}>Add Product</Link>
               </li>
-              {/* <li>
-                <Link to={routes.newProduct()}>My Suppliers</Link>
-              </li> */}
             </ul>
           </div>
         </div>

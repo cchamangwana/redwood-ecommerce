@@ -1,5 +1,4 @@
 import React from "react";
-// import toast from "react-hot-toast";
 import { useShoppingCart } from "use-shopping-cart";
 import { toast } from '@redwoodjs/web/toast'
 
@@ -14,8 +13,8 @@ const AddToCart = ({ product }) => {
   }
 
   return (
-    <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={handleAddItem}>
-      Add To Cart
+    <button className="flex ml-auto text-white bg-green-500 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded" onClick={handleAddItem}>
+      Purchase
     </button>
   );
 }

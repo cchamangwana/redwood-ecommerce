@@ -2,6 +2,8 @@ import { formatDateToNow } from 'src/utils/formatDate'
 import AddToCart from '../AddToCart/AddToCart'
 import RemoveFromCart from '../RemoveFromCart/RemoveFromCart'
 import { useAuth } from '@redwoodjs/auth'
+import ComparisonTable from 'src/components/ComparisonTable/ComparisonTable'
+import Compare from '../Compare/Compare'
 
 export const QUERY = gql`
   query productQuery($id: String!) {
@@ -37,6 +39,8 @@ export const Failure = ({ error }) => (
 )
 
 export const Success = ({ product }) => {
+  const [compare , setCompare] = React.useState(false)
+
   const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
 
   const { reviews } = product
@@ -47,15 +51,18 @@ export const Success = ({ product }) => {
     price: product.price
   }
 
-  // console.log(product)
+  const handleCompare = () => {
+    setCompare(true)
+  }
 
   return (
-    <section className="text-gray-400 body-font overflow-hidden">
-      <div className="px-1 py-24 mx-auto">
+    // <section className="text-gray-400 body-font overflow-hidden">
+    <section className="body-font overflow-hidden">
+      <div className="px-1 py-15 mx-auto">
         <div className="lg:w-4/5 mx-auto flex flex-wrap">
           <img
             alt={product.name}
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+            className="lg:w-1/2 w-full lg:h-auto  object-cover object-center rounded"
             src={product.image}
           />
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
@@ -78,13 +85,13 @@ export const Success = ({ product }) => {
             </p>
             <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-800 mb-5"></div>
             <div className="flex">
-              <span className="title-font font-medium text-2xl text-black">
+              <span style={{zoom: 0.8}} className="title-font font-medium text-2xl text-black">
                 K{product.price}
               </span>
               <AddToCart product={product} />
-              <RemoveFromCart product={product} />
+              <Compare handleCompare={handleCompare}/>
             </div>
-            {isAuthenticated && (
+            {/* {isAuthenticated && (
             <div className="flex items-center justify-center mb-4 max-w-lg">
               <form className="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
                 <div>
@@ -111,7 +118,7 @@ export const Success = ({ product }) => {
                   </div>
                 </div>
               </form>
-            </div>)}
+            </div>)} */}
           </div>
         </div>
         {/* <div className="lg:w-4/5 mx-auto">
@@ -133,6 +140,11 @@ export const Success = ({ product }) => {
             )
           })}
         </div> */}
+        <div className="px-1 py-5 mx-auto">
+        { compare &&
+          <ComparisonTable />
+        }
+        </div>
       </div>
     </section>
   )

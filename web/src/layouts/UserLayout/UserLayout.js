@@ -58,7 +58,7 @@ const UserLayout = ({ children }) => {
                   </li> */}
                   {isAuthenticated ? (
                     <li>
-                      <Link to={routes.account()}>My Account</Link>
+                      <Link to={routes.account()}>Account</Link>
                     </li>
                   ) : null}
                   {console.log(currentUser?.roles)}

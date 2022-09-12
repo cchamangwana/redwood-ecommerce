@@ -1,7 +1,10 @@
 import ProductsCell from 'src/components/Product/ProductsCell'
+import { useAuth } from '@redwoodjs/auth'
 
-const ProductsPage = ({ id }) => {
-  return <ProductsCell id={id}  />
+const ProductsPage = () => {
+  const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
+
+  return <ProductsCell id={currentUser.id}  />
 }
 
 export default ProductsPage
