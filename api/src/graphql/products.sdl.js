@@ -19,6 +19,7 @@ export const schema = gql`
     products: [Product!]! @skipAuth
     product(id: String!): Product @skipAuth
     getUserProducts(id: String!): [Product] @skipAuth
+    getProductsByCategory(id: String!): [Product] @skipAuth
   }
 
   input CreateProductInput {

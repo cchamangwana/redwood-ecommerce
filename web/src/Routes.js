@@ -14,6 +14,7 @@ const Routes = () => {
         <Set wrap={AdminLayout}>
           <Route path="/admin" page={AdminPage} name="admin" />
           <Route path="/admin/users" page={UsersPage} name="users" />
+          <Route path="/admin/all-products" page={AllProductsPage} name="allProducts" />
           <Set wrap={CategoriesLayout}>
             <Route path="/admin/categories/new" page={CategoryNewCategoryPage} name="newCategory" />
             <Route path="/admin/categories/{id}/edit" page={CategoryEditCategoryPage} name="editCategory" />
@@ -26,6 +27,15 @@ const Routes = () => {
       <Private private unauthenticated="home">
         <Set wrap={AccountLayout}>
           <Route path="/account" page={AccountPage} name="account" />
+          {/* <Route path="/products/new" page={ProductNewProductPage} name="newProduct" />
+          <Route path="/products/{id}/edit" page={ProductEditProductPage} name="editProduct" />
+          <Route path="/products/{id}" page={ProductProductPage} name="product" />
+          <Route path="/products" page={ProductProductsPage} name="products" /> */}
+        </Set>
+      </Private>
+
+      <Private private unauthenticated="home">
+        <Set wrap={ProductsLayout}>
           <Route path="/products/new" page={ProductNewProductPage} name="newProduct" />
           <Route path="/products/{id}/edit" page={ProductEditProductPage} name="editProduct" />
           <Route path="/products/{id}" page={ProductProductPage} name="product" />

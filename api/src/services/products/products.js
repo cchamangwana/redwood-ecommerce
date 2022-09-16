@@ -24,6 +24,17 @@ export const getUserProducts = ({ id }) => {
   })
 }
 
+export const getProductsByCategory = ({ id }) => {
+  return db.product.findMany({
+    where: {
+      categoryId: id,
+    },
+    orderBy: {
+      price: "asc"
+    }
+  })
+}
+
 export const updateProduct = ({ id, input }) => {
   return db.product.update({
     data: input,

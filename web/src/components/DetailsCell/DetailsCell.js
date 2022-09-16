@@ -1,8 +1,6 @@
-import { formatDateToNow } from 'src/utils/formatDate'
 import AddToCart from '../AddToCart/AddToCart'
-import RemoveFromCart from '../RemoveFromCart/RemoveFromCart'
 import { useAuth } from '@redwoodjs/auth'
-import ComparisonTable from 'src/components/ComparisonTable/ComparisonTable'
+import CompareCell from 'src/components/CompareCell/CompareCell'
 import Compare from '../Compare/Compare'
 
 export const QUERY = gql`
@@ -13,6 +11,7 @@ export const QUERY = gql`
       description
       price
       image
+      categoryId
       category {
         id
         name
@@ -142,7 +141,7 @@ export const Success = ({ product }) => {
         </div> */}
         <div className="px-1 py-5 mx-auto">
         { compare &&
-          <ComparisonTable />
+          <CompareCell id={product.categoryId} price={product.price}/>
         }
         </div>
       </div>

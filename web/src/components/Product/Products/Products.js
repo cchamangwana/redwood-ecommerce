@@ -94,7 +94,7 @@ const ProductsList = ({ products }) => {
             <th>Price</th>
             {/* <th>Image</th> */}
             <th>Is active</th>
-            {/* <th>Owner</th> */}
+            <th>Owner</th>
             <th>Created at</th>
             <th>Category</th>
             <th>&nbsp;</th>
@@ -107,7 +107,7 @@ const ProductsList = ({ products }) => {
               <td>{truncate(product.name)}</td>
               <td>{truncate(product.price)}</td>
               <td>{checkboxInputTag(product.isActive)}</td>
-              {/* <td>{truncate(product.user.name)}</td> */}
+              <td>{truncate(product.user.name)}</td>
               {/* <td>{timeTag(formatDateToNow(product.createdAt))}</td> */}
               <td>{timeTag(product.createdAt)}</td>
               <td>{truncate(product.category.name)}</td>

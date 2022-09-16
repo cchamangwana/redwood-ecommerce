@@ -1,5 +1,9 @@
 import {Link, routes}  from "@redwoodjs/router"
+import { useAuth } from '@redwoodjs/auth'
+
 const AdminLayout = ({ children }) => {
+  const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
+
   return (
     <>
        <div className="navbar bg-base-100 container mx-auto">
@@ -33,14 +37,14 @@ const AdminLayout = ({ children }) => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">smartMarkets</a>
+          <a className="btn btn-ghost normal-case text-xl"><Link to={routes.home()}> SmartMarkets</Link></a>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal p-0">
               <li>
                 <Link to={routes.admin()}>Home</Link>
               </li>
               <li>
-                <Link to={routes.products()}>All Products</Link>
+                <Link to={routes.allProducts()}>All Products</Link>
               </li>
               {/* <li>
                 <Link to={routes.orders()}>All Orders</Link>
@@ -61,7 +65,7 @@ const AdminLayout = ({ children }) => {
           </div>
         </div>
         <div className="navbar-end">
-          <a className="btn btn-ghost">Logout</a>
+        <a onClick={logOut} className="btn btn-ghost">Logout</a>
         </div>
       </div>
       <hr />

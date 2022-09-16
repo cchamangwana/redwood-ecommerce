@@ -1,9 +1,10 @@
+
 import { Link, routes } from '@redwoodjs/router'
 import Products from 'src/components/Product/Products'
 
 export const QUERY = gql`
-  query GetUserProductsQuery($id: String!) {
-    products: getUserProducts(id: $id){
+  query FindProducts {
+    products {
       id
       name
       description

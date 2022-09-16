@@ -1,12 +1,12 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import AdminCell from 'src/components/AdminCell'
 
 const AdminPage = () => {
   return (
     <>
       <MetaTags title="Admin" description="Admin page" />
 
-      <h1>AdminPage</h1>
       <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             <div className="flex flex-wrap">
@@ -120,6 +120,9 @@ const AdminPage = () => {
               </div>
             </div>
           </div>
+          <div style={{ marginTop: 20}}>
+        <AdminCell/>
+        </div>
         </div>
     </>
   )
