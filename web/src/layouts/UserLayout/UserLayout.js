@@ -47,21 +47,19 @@ const UserLayout = ({ children }) => {
                   </li>
                 </ul>
               </div>
-              <a className="btn btn-ghost normal-case text-xl">Ecommerce</a>
+              <a className="btn btn-ghost normal-case text-xl">
+              <Link to={routes.home()}>Ecommerce</Link>
+                </a>
               <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                   <li>
                     <Link to={routes.home()}>Home</Link>
                   </li>
-                  {/* <li>
-                    <Link to={routes.products()}>Products</Link>
-                  </li> */}
-                  {isAuthenticated ? (
+                  {currentUser?.roles =='user' && (
                     <li>
                       <Link to={routes.account()}>Account</Link>
                     </li>
-                  ) : null}
-                  {console.log(currentUser?.roles)}
+                  )}
                   {currentUser?.roles =='admin' && (
                     <li>
                       <Link to={routes.admin()}>Admin</Link>

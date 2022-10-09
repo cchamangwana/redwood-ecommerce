@@ -37,6 +37,7 @@ model Product {
   id          String   @id @default(cuid())
   name        String
   description String
+  // shortBlurb  String  use this for short description on product page
   price       Int
   image       String
   isActive    Boolean  @default(true)

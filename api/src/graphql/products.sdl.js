@@ -2,6 +2,7 @@ export const schema = gql`
   type Product {
     id: String!
     name: String!
+    # shortBlurb: String! use this for short description on product page
     description: String!
     price: Int!
     image: String!
@@ -24,6 +25,7 @@ export const schema = gql`
 
   input CreateProductInput {
     name: String!
+    # shortBlurb: String! use this for short description on product page
     description: String!
     price: Int!
     image: String!
@@ -35,6 +37,7 @@ export const schema = gql`
   input UpdateProductInput {
     name: String
     description: String
+    shortBlurb: String
     price: Int
     image: String
     isActive: Boolean
