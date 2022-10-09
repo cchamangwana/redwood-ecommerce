@@ -11,13 +11,27 @@ import {
 } from '@redwoodjs/forms'
 import { useAuth } from '@redwoodjs/auth'
 import CategoriesCell from 'src/components/CategoriesCell/CategoriesCell'
-
+import { PickerInline } from 'filestack-react'
+import { useState } from 'react'
 
 const ProductForm = (props) => {
+  const [url, setUrl] = useState(props?.image?.url)
   const { isAuthenticated, currentUser } = useAuth()
 
   const onSubmit = (data) => {
+    const dataWithUrl = Object.assign(data, { url })
+    console.log('dataWithUrl', dataWithUrl)
+    // console.log(data)
+    data.image = String(data.url)
+    // remove url from data
+    delete data.url
     props.onSave(data, props?.product?.id)
+
+  }
+
+  const onFileUpload = (response) => {
+    // console.info(response)
+    setUrl(String(response.filesUploaded[0].url))
   }
 
   return (
@@ -84,7 +98,7 @@ const ProductForm = (props) => {
 
         <FieldError name="price" className="rw-field-error" />
 
-        <Label
+        {/* <Label
           name="image"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
@@ -100,7 +114,24 @@ const ProductForm = (props) => {
           validation={{ required: true }}
         />
 
-        <FieldError name="image" className="rw-field-error" />
+        <FieldError name="image" className="rw-field-error" /> */}
+
+        <PickerInline
+          apikey={process.env.REDWOOD_ENV_FILESTACK_API_KEY}
+          pickerOptions={{
+            accept: 'image/*',
+            maxFiles: 1,
+            transformations: {
+              crop: {
+                // square crop
+                aspectRatio: 1,
+              },
+            },
+          }}
+          // onSuccess={onFileUpload}
+          onUploadDone={onFileUpload}
+        />
+
 
         <Label
           name="isActive"
