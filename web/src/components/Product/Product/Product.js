@@ -90,7 +90,10 @@ const Product = ({ product }) => {
             </tr>
             <tr>
               <th>Image</th>
-              <td>{product.image}</td>
+              {/* <td>{product.image}</td> */}
+              <a href={product.image} target="_blank">
+                  <img src={product.image} style={{ maxWidth: '50px' }} />
+                </a>
             </tr>
             <tr>
               <th>Is active</th>

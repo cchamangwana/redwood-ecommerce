@@ -19,7 +19,7 @@ export const QUERY = gql`
       }
       user {
         id
-        name
+        email
       }
     }
   }
